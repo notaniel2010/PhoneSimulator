@@ -1,0 +1,80 @@
+import javax.swing.*;
+import java.io.IOException;
+
+//change board class to have a new method-get price or something, it is 
+//currently all in PosBought for the rent and what not
+
+public class MainCode  
+{
+    public static void main (String args[] )     throws IOException {
+        
+
+    
+    Verizon  Verizon1 = new Verizon();
+    CellPhone1 Nathaniel = new CellPhone1("Nathaniel's" ,"Droid X2", "843-556-8263");
+    CellPhone1 Cole = new CellPhone1 ("Cole's", "HTC One", "843-696-9776");
+    double NathanielRange = Verizon1.Distance(Nathaniel.PhoneCoordinateX(), Nathaniel.PhoneCoordinateY());
+    double ColeRange = Verizon1.Distance(Cole.PhoneCoordinateX(), Cole.PhoneCoordinateY());
+    
+    double x = Nathaniel.locationX1;
+    double y = Nathaniel.locationY1;
+    double x1 = Cole.locationX1;
+    double y1 = Cole.locationY1;
+    //System.out.println("" +Cole.locationX1+"," +Cole.locationY1+"");
+    //System.out.println("" +Nathaniel.locationX1+ "," +Nathaniel.locationY1+"");
+    // System.out.println("" +NathanielRange+ "," +ColeRange+"");
+
+    if (NathanielRange < 5 && ColeRange < 5)
+    {
+    System.out.println("Nathnaiel:Dialing");
+    System.out.println("Cole:Answering"); 
+    }
+    else 
+    {
+    if (NathanielRange < 5 && ColeRange > 5)
+    {
+    System.out.println("Nathnaiel:Dialing");
+    System.out.println("Cole:Out of Range"); 
+    }
+    else 
+    {
+    System.out.println("Nathnaiel:Out of Range");
+    System.out.println("Cole:Out of Range");
+    }
+    }
+
+    while ((NathanielRange <= 5 && ColeRange <= 5) && ( Verizon1.Calltime() < 30))
+    {
+    Nathaniel.Call();
+    Cole.Call();
+    NathanielRange = Verizon1.Distance(Nathaniel.PhoneCoordinateX(), Nathaniel.PhoneCoordinateY());
+    ColeRange = Verizon1.Distance(Cole.PhoneCoordinateX(), Cole.PhoneCoordinateY());
+
+    
+    System.out.println("Nathaniel: Talking, Distance from tower" +NathanielRange+ "");
+    System.out.println("Cole: Talking, Distance from Tower" +ColeRange+ "");
+
+    //System.out.println("" +NathanielRange+ "," +ColeRange+"");
+    }
+
+    if (Verizon1.Calltime() == 30)
+    {
+    System.out.println("Time Goal Achieved");
+    System.out.println("Call Completed");
+    }  
+
+    if (NathanielRange > 5)
+    {
+    System.out.println("Nathnaniel:Phone Out of Range");
+    System.out.println("Call Ended");
+    }
+
+    if (ColeRange > 5)
+    {
+    System.out.println("Cole:Phone Out of Range");
+    System.out.println("Call Ended");
+    }
+
+     
+
+}
