@@ -1,0 +1,36 @@
+
+
+public class Verizon
+{
+   
+    
+    private double TowerX;
+    private double TowerY;
+    private int CallTime;
+    
+
+    public Verizon()
+    {
+      TowerX = (double)(Math.random()*10+1); 
+      TowerY = (double)(Math.random()*10+1);
+      CallTime = 0;
+    }
+       
+    public double Distance(double x, double y)
+    {
+      return Math.sqrt(((TowerX-x)*(TowerX-x))+((TowerY-y)*(TowerY-y)));
+    }
+    
+   
+    
+    public int Calltime()
+    {
+        CallTime ++;
+        System.out.println("" +CallTime+ " Minutes on the phone");
+        return CallTime;
+    }
+  
+    
+ 
+
+}
