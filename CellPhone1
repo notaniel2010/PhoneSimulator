@@ -1,0 +1,45 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class CellPhone1 extends JFrame 
+ {
+    private String cellPhoneType;
+    private String name;
+    private String myNumber;
+    private String otherNumber;
+    private int signalStrength;
+     int locationX1;
+     int locationY1;
+
+    
+    public CellPhone1(String n, String t, String mn)
+    {
+        cellPhoneType = t;
+        name = n; 
+        myNumber = mn;
+        locationX1 = (int)(Math.random()*10) + 1;
+        locationY1 = (int)(Math.random()*10) + 1;
+        System.out.println(""+name+" " +cellPhoneType+ " with number " +myNumber+ " created");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+    }
+    
+    public void Call()
+    {
+        locationX1 = (int)(Math.random()*10) + 1;
+        locationY1 = (int)(Math.random()*10) + 1;
+    }
+   
+    public double PhoneCoordinateX()
+    {
+        return locationX1;
+        
+    }
+    
+    public double PhoneCoordinateY()
+    {
+        return locationY1;
+    }
+ }
+
